@@ -277,7 +277,7 @@ class Marker(object):
         except ParseException as e:
             err_str = "Invalid marker: {0!r}, parse error at {1!r}".format(
                 marker, marker[e.loc:e.loc + 8])
-            raise InvalidMarker(err_str)
+            raise InvalidMarker(err_str) from e
 
     def __str__(self):
         return _format_marker(self._markers)
